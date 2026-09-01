@@ -123,7 +123,6 @@
   function updateDisplay() {
     els.timeDisplay.textContent = formatTime(secondsLeft);
     updateRing();
-    const cycleNum = Math.floor(data.focusesCompleted / 1) + 1;
     if (mode === 'focus') {
       els.cycleDisplay.textContent = `Session ${data.focusesCompleted + 1}`;
     } else {
