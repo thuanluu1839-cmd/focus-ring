@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Ring</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>Focus Ring</h1>
+      <div class="streak" title="Consecutive days with at least one completed focus session">
+        <span class="flame">🔥</span>
+        <span id="streak-count">0</span>
+        <span class="streak-label">day streak</span>
+      </div>
+    </header>
+
+    <section class="mode-switch" role="tablist" aria-label="Timer mode">
+      <button class="mode-btn active" data-mode="focus" role="tab" aria-selected="true">Focus</button>
+      <button class="mode-btn" data-mode="short" role="tab" aria-selected="false">Short Break</button>
+      <button class="mode-btn" data-mode="long" role="tab" aria-selected="false">Long Break</button>
+    </section>
+
+    <section class="ring-wrap">
+      <svg class="ring" viewBox="0 0 300 300">
+        <circle class="ring-track" cx="150" cy="150" r="135"></circle>
+        <circle id="ring-progress" class="ring-progress" cx="150" cy="150" r="135"></circle>
+      </svg>
+      <div class="ring-center">
+        <div id="time-display" class="time-display">25:00</div>
+        <div id="cycle-display" class="cycle-display">Session 1</div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="reset-btn" class="ctrl-btn secondary" aria-label="Reset timer">↺</button>
+      <button id="start-btn" class="ctrl-btn primary">Start</button>
+      <button id="skip-btn" class="ctrl-btn secondary" aria-label="Skip to next">⏭</button>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="stat-value" id="today-count">0</div>
+        <div class="stat-label">Sessions Today</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="today-minutes">0</div>
+        <div class="stat-label">Minutes Focused</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="total-count">0</div>
+        <div class="stat-label">All-Time Sessions</div>
+      </div>
+    </section>
+
+    <footer class="settings">
+      <label>Focus
+        <input type="number" id="focus-len" min="1" max="90" value="25">
+      </label>
+      <label>Short Break
+        <input type="number" id="short-len" min="1" max="30" value="5">
+      </label>
+      <label>Long Break
+        <input type="number" id="long-len" min="1" max="60" value="15">
+      </label>
+      <label class="sound-toggle">
+        <input type="checkbox" id="sound-toggle" checked>
+        Sound
+      </label>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
